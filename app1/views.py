@@ -77,10 +77,10 @@ def dashboard(request):
             db.save()
         
         # to show the approved problem
-        # prob = Problems.objects.filter(owner=name)
-        # print(prob)
+        probl = Problems.objects.filter(owner=name)
+        print(probl)
         
-        return render(request,'dashboard.html', {'name': name})
+        return render(request,'dashboard.html', {'name': name, 'probl': probl})
     return redirect('LOGIN')
 
 def userLogOut(request):

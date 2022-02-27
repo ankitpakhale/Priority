@@ -20,4 +20,4 @@ class Problems(models.Model):
     owner  = models.ForeignKey(signUp, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
-        return str(self.owner )  
+        return str(self.owner )

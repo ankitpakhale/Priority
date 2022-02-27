@@ -270,7 +270,17 @@
 
                 <input class="type-2" type="submit" name="submit" value="Report">
             </form>
-        </div>     
+        </div>
+        {% for i in probl %}
+        {% if i.isappoved == True %}
+        <div class="data">
+
+            <h5>
+                {{i.problem}}
+            </h5>
+        </div>
+        {% endif %}
+        {% endfor %}
 
     </div>
 </body>
