@@ -66,10 +66,18 @@ def dashboard(request):
     if 'email' in request.session:
         name = signUp.objects.get(email = request.session['email'])
         
+        if request.POST:
+            prob = request.POST['problem']
+            print(prob)
+        
+            db = Problems()
+            db.problem = prob  
+            db.owner = name      
+            db.save()
         
         # to show the approved problem
-        prob = Problems.objects.filter(owner=name)
-        print(prob)
+        # prob = Problems.objects.filter(owner=name)
+        # print(prob)
         
         return render(request,'dashboard.html', {'name': name})
     return redirect('LOGIN')

@@ -16,7 +16,7 @@ class signUp(models.Model):
 
 class Problems(models.Model):
     problem = models.CharField(max_length=30, default='')
-    isappoved = models.BooleanField(default=False)
+    isappoved = models.BooleanField(default=False, null=True)
     owner  = models.ForeignKey(signUp, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
