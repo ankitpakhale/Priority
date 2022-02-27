@@ -71,8 +71,9 @@ def dashboard(request):
             print(prob)
         
             db = Problems()
-            db.problem = prob  
-            db.owner = name      
+            db.problem = prob
+            db.isappoved = 0  
+            db.owner = name
             db.save()
         
         # to show the approved problem
