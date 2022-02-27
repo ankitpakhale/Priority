@@ -65,6 +65,12 @@ def userLogin(request):
 def dashboard(request):
     if 'email' in request.session:
         name = signUp.objects.get(email = request.session['email'])
+        
+        
+        # to show the approved problem
+        prob = Problems.objects.filter(owner=name)
+        print(prob)
+        
         return render(request,'dashboard.html', {'name': name})
     return redirect('LOGIN')
 

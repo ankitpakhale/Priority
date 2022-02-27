@@ -68,7 +68,7 @@
 
         .logout a:hover {
             transition: all 0.5s ease;
-            background: #E6E6E6;
+            background: transparent;
             color: #002153;
             border: 2px solid #A5A2D4;
         }
@@ -102,14 +102,14 @@
 
         .type-2 {
             border-radius: 6px;
-            background-color: #E6E6E6;
+            background-color: #A5A2D4;
             border: 0;
             box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
             transition: .3s box-shadow;
             padding: 7px 13px;
             margin: 10px auto;
             display: block;
-            width: 20%;
+            width: auto;
             font-size: 16px;
             font-weight: 550;
             transition: all 0.5s ease;
@@ -117,16 +117,16 @@
 
         .type-2:hover {
             transition: all 0.5s ease;
-            box-shadow: 5px 5px 5px #A5A2D4;
+            box-shadow: 5px 5px 5px #D8DDFE;
             /* border: 1px solid #A5A2D4; */
         }
 
         .data {
             border-radius: 6px;
-            background-color: #D8DDFE;
+            background-color: #CBCBE9;
             padding: 10px;
             text-align: center;
-            box-shadow: 5px 5px 5px #A5A2D4;
+            box-shadow: 5px 5px 5px #a1a1b9;
             margin: 30px 0;
         }
 
@@ -260,6 +260,17 @@
                 Welcome {{name}}
             </div>
         </div>
+
+        <!-- submitting application form for Placements -->
+        <div class="data">
+            <h2>Problem Form</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <textarea name="problem" placeholder="Write Problem Description here"></textarea>
+
+                <input class="type-2" type="submit" name="submit" value="Report">
+            </form>
+        </div>     
 
     </div>
 </body>
