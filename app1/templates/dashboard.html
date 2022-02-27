@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 0 auto;
+            padding: 0;
+            color: #000;
+            font-size: 18px;
+            line-height: 35px;
+            background-color: #e6e6e6;
+        }
+
+        .container {
+            margin: 30px;
+            padding: 26px;
+            /* border: 2px solid #334bb4; */
+        }
+
+        .dash {
+            text-align: center;
+            margin: 13px;
+            padding: 21px
+        }
+
+        .dash h4 {
+            font-size: 45px;
+            color: #002153;
+            text-decoration: underline;
+            font-weight: 900;
+        }
+
+        .top {
+            display: flex;
+            flex-direction: row;
+            text-decoration: uppercase;
+            margin: 20px 0;
+        }
+
+        .logout a {
+            display: block;
+            width: 80px;
+            height: 18px;
+            background: #A5A2D4;
+            padding: 14px;
+            text-align: center;
+            border-radius: 5px;
+            color: #002153;
+            font-weight: 900;
+            font-size: 16px;
+            line-height: 0px;
+            text-decoration: none;
+            border: 2px solid transparent;
+            transition: all 0.5s ease;
+        }
+
+        .logout a:hover {
+            transition: all 0.5s ease;
+            background: #E6E6E6;
+            color: #002153;
+            border: 2px solid #A5A2D4;
+        }
+
+        .top .name {
+            color: #002153;
+            font-family: sans-serif;
+            font-weight: 650;
+            font-size: 24px;
+            position: absolute;
+            right: 30px;
+            margin: 0 50px;
+            padding: 0 10px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: #002153;
+            font-size: 30px;
+            margin: 10px 0;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group input {
+            display: block;
+            width: 20%;
+            margin: 10px auto;
+            padding: 10px;
+        }
+
+        .type-2 {
+            border-radius: 6px;
+            background-color: #E6E6E6;
+            border: 0;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+            transition: .3s box-shadow;
+            padding: 7px 13px;
+            margin: 10px auto;
+            display: block;
+            width: 20%;
+            font-size: 16px;
+            font-weight: 550;
+            transition: all 0.5s ease;
+        }
+
+        .type-2:hover {
+            transition: all 0.5s ease;
+            box-shadow: 5px 5px 5px #A5A2D4;
+            /* border: 1px solid #A5A2D4; */
+        }
+
+        .data {
+            border-radius: 6px;
+            background-color: #D8DDFE;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 5px 5px 5px #A5A2D4;
+            margin: 30px 0;
+        }
+
+        h3 {
+            color: #002153;
+            margin: 10px 0;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 30px;
+        }
+
+        .data h3 {
+            color: #002153;
+            margin: 10px 0;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .column {
+            width: 100%;
+            padding: 10px;
+            height: auto;
+        }
+
+        .column a {
+            margin: 10px 3px;
+            padding: 3px 13px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        table,
+        th,
+        td {
+            border: 0.5px solid black;
+        }
+
+        tr.items {
+            text-align: left;
+        }
+
+        td {
+            transition: all 0.5s ease;
+            padding: 3px 13px;
+            cursor: pointer;
+        }
+
+        td:hover {
+            transition: all 0.5s ease;
+            background-color: #ffffe0;
+        }
+
+        textarea {
+            width: 650px;
+            height: 80px;
+            border-radius: 6px;
+            background-color: #E6E6E6;
+            border: 0;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+            transition: .3s box-shadow;
+            padding: 7px 13px;
+            margin: 10px auto;
+            font-size: 16px;
+            font-weight: 550;
+        }
+
+        .type-1 {
+            border-radius: 6px;
+            background-color: #E6E6E6;
+            border: 0;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+            transition: .3s box-shadow;
+            padding: 7px 13px;
+            margin: 10px auto;
+            display: block;
+            width: 20%;
+            font-size: 16px;
+            font-weight: 550;
+            transition: all 0.5s ease;
+        }
+
+        .search {
+            padding: 6px;
+            margin: 13px 0;
+            font-size: 17px;
+            border: none;
+            width: 40%;
+            background-color: transparent;
+            border: 1px solid #000;
+        }
+
+        .search-container button {
+            border: 1px solid #000;
+            padding: 6px;
+            margin-top: 8px;
+            margin-right: 16px;
+            background: #ddd;
+            font-size: 17px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="dash">
+            <h4>Member Dashboard</h4>
+        </div>
+
+        <div class="top">
+            <div class="logout">
+                <a href="{% url 'LOGOUT' %}" class="logout">
+                    Logout
+                </a>
+            </div>
+            <div class="name">
+                Welcome {{name}}
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
