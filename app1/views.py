@@ -89,5 +89,26 @@ def userLogOut(request):
     return redirect('LOGIN')
 
 
+def about (request): 
+    return render(request, 'about.html')
+
+def contact (request): 
+    return render(request, 'contact.html')
+
+def faqs (request): 
+    return render(request, 'faqs.html')
+
 def index (request): 
     return render(request, 'index.html')
+
+def productDetail (request): 
+    return render(request, 'productDetail.html')
+
+def products (request): 
+    return render(request, 'products.html')
+
+def signup1 (request): 
+    return render(request, 'sign-in.html')
+
+def login1 (request): 
+    return render(request, 'sign-up.html')
