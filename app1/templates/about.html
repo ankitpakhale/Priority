@@ -43,52 +43,68 @@ https://www.tooplate.com/view/2127-little-fashion
     
         <main>
 
-            <nav class="navbar navbar-expand-lg">
+            <nav class="navbar navbar-expand-lg bg-light">
                 <div class="container">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <a class="navbar-brand" href=" {% static 'index.html' %} ">
-                        <strong><span>Monitoring Stocks </span>& Sales system</strong>
+                    <a class="navbar-brand" href=" {% url 'INDEX' %} ">
+                         <strong><span>Sales & Stock </span> Monitoring System</strong>
                     </a>
-
+                    
                     <div class="d-lg-none">
-                        <a href=" {% static 'sign-in.html' %} " class="bi-person custom-icon me-3"></a>
+                        <a href=" {% url 'LOGIN1' %} " class="bi-person custom-icon me-3"></a>
 
-                        <a href=" {% static 'product-detail.html' %} " class="bi-bag custom-icon"></a>
+                        <a href=" {% url 'PRODUCTDETAILS' %} " class="bi-bag custom-icon"></a>
                     </div>
 
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav mx-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href=" {% static 'index.html' %} ">Home</a>
+                                <a class="nav-link active" href=" {% url 'INDEX' %} ">Home</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link " href=" {% static 'contact.html' %} ">Contact Us</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link active" href=" {% static '' %} ">About Us</a>
+                                <a class="nav-link" href=" {% url 'ABOUT' %} ">About</a>
                             </li>
 
                             <!-- <li class="nav-item">
-                                <a class="nav-link" href=" {% static 'products.html' %} ">Products</a>
-                            </li> -->
-
-                            <!-- <li class="nav-item">
-                                <a class="nav-link" href=" {% static 'faq.html' %} ">FAQs</a>
+                                <a class="nav-link" href="#">Confirm Order</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href=" {% static 'contact.html' %} ">Contact</a>
+                                <a class="nav-link" href="#">Order Bills</a>
                             </li> -->
 
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                  aria-expanded="false">
+                                  Add 
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">Add Store</a></li>
+                                    <li><a class="dropdown-item" href="#">Add Stock</a></li>
+                                  <li><a class="dropdown-item" href="#">View Stock</a></li>
+                                  <li>
+                                </ul>
+                              </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href=" {% url 'CONTACT' %} ">Contact</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href=" {% url 'LOGIN' %} ">Login</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href=" {% url 'LOGOUT' %} ">Logout</a>
+                            </li>
                         </ul>
 
                         <div class="d-none d-lg-block">
-                            <a href=" {% static 'sign-in.html' %} " class="bi-person custom-icon me-3"></a>
+                            <a href="  {% url 'LOGIN1' %}  " class="bi-person custom-icon me-3"></a>
 
                             <!-- <a href=" {% static 'product-detail.html' %} " class="bi-bag custom-icon"></a> -->
                         </div>
@@ -170,33 +186,31 @@ https://www.tooplate.com/view/2127-little-fashion
             </section>
 
         </main>
-
-        <footer class="site-footer">
+        
+     <footer class="site-footer">
             <div class="container">
                 <div class="row">
 
                     <div class="col-lg-3 col-10 me-auto mb-4">
-                        <h4 class="text-white mb-3"><a href=" {% static 'index.html' %} ">Sales & Stock</a> Monitoring System</h4>
-                        <p class="copyright-text text-muted mt-lg-5 mb-4 mb-lg-0">Copyright © 2022 <strong>Sales & stock Monitoring System</strong></p>
+                        <h4 class="text-white mb-3"><a href=" {% url 'INDEX' %} ">Sales & Stock</a> Monitoring System</h4>
+                        <p class="copyright-text text-muted mt-lg-5 mb-4 mb-lg-0">Copyright © 2022 <strong>Sales & stock Monitoring System </strong></p>
                         <br>
                         <p class="copyright-text">Designed by <a href="https://www.tooplate.com/" target="_blank">Tooplate</a></p>
                     </div>
 
-                    <!-- <div class="col-lg-5 col-8">
+                    <div class="col-lg-5 col-8">
                         <h5 class="text-white mb-3">Sitemap</h5>
 
                         <ul class="footer-menu d-flex flex-wrap">
-                            <li class="footer-menu-item"><a href=" {% static 'about.html' %} " class="footer-menu-link">About</a></li>
+                            <li class="footer-menu-item"><a href=" {% url 'ABOUT' %} " class="footer-menu-link">About</a></li>
 
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Products</a></li>
+                            <li class="footer-menu-item"><a href=" {% url 'PRODUCT' %} " class="footer-menu-link">Products</a></li>
 
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Privacy policy</a></li>
+                            <li class="footer-menu-item"><a href=" {% url 'FAQS' %} " class="footer-menu-link">FAQs</a></li>
 
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">FAQs</a></li>
-
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Contact</a></li>
+                            <li class="footer-menu-item"><a href=" {% url 'CONTACT' %} " class="footer-menu-link">Contact</a></li>
                         </ul>
-                    </div> -->
+                    </div>
 
                     <div class="col-lg-3 col-4">
                         <h5 class="text-white mb-3">Social</h5>

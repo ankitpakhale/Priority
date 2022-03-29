@@ -48,29 +48,33 @@ https://www.tooplate.com/view/2127-little-fashion
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <a class="navbar-brand" href=" {% static 'index.html' %} ">
+                    <a class="navbar-brand" href=" {% url 'INDEX' %} ">
                          <strong><span>Sales & Stock </span> Monitoring System</strong>
                     </a>
                     
                     <div class="d-lg-none">
-                        <a href=" {% static 'sign-in.html' %} " class="bi-person custom-icon me-3"></a>
+                        <a href=" {% url 'LOGIN1' %} " class="bi-person custom-icon me-3"></a>
 
-                        <a href=" {% static 'product-detail.html' %} " class="bi-bag custom-icon"></a>
+                        <a href=" {% url 'PRODUCTDETAILS' %} " class="bi-bag custom-icon"></a>
                     </div>
 
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav mx-auto">
                             <li class="nav-item">
-                                <a class="nav-link active" href=" {% static 'index.html' %} ">Home</a>
+                                <a class="nav-link active" href=" {% url 'INDEX' %} ">Home</a>
                             </li>
 
                             <li class="nav-item">
+                                <a class="nav-link" href=" {% url 'ABOUT' %} ">About</a>
+                            </li>
+
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" href="#">Confirm Order</a>
                             </li>
 
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Order Bills</a>
-                            </li>
+                            </li> -->
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -86,12 +90,20 @@ https://www.tooplate.com/view/2127-little-fashion
                               </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href=" {% static 'contact.html' %} ">Logout</a>
+                                <a class="nav-link" href=" {% url 'CONTACT' %} ">Contact</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href=" {% url 'LOGIN' %} ">Login</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href=" {% url 'LOGOUT' %} ">Logout</a>
                             </li>
                         </ul>
 
                         <div class="d-none d-lg-block">
-                            <a href=" {% static 'sign-in.html' %} " class="bi-person custom-icon me-3"></a>
+                            <a href="  {% url 'LOGIN1' %}  " class="bi-person custom-icon me-3"></a>
 
                             <!-- <a href=" {% static 'product-detail.html' %} " class="bi-bag custom-icon"></a> -->
                         </div>
@@ -111,8 +123,8 @@ https://www.tooplate.com/view/2127-little-fashion
 
                                     <p class="lead text-white mt-lg-3 mb-lg-5">helps to keep in touch of stocks.</p>
 
-                                    <a href=" {% static 'about.html' %} " class="btn custom-btn">About Us</a>
-                                    <a href=" {% static 'contact.html' %} " class="btn custom-btn">Contact Us</a>
+                                    <a href=" {% url 'ABOUT' %} " class="btn custom-btn">About Us</a>
+                                    <a href=" {% url 'CONTACT' %} " class="btn custom-btn">Contact Us</a>
                                 </div>
                             </div>
                         </div>
@@ -130,8 +142,8 @@ https://www.tooplate.com/view/2127-little-fashion
 
                                     <p class="lead text-white mt-lg-3 mb-lg-5">helps to keep in touch of sales.</p>
 
-                                    <a href=" {% static 'about.html' %} " class="btn custom-btn">About Us</a>
-                                    <a href=" {% static 'about.html' %} " class="btn custom-btn">Contact Us</a>
+                                    <a href=" {% url 'ABOUT' %} " class="btn custom-btn">About Us</a>
+                                    <a href=" {% url 'CONTACT' %} " class="btn custom-btn">Contact Us</a>
                                 </div>
                             </div>
                         </div>
@@ -149,8 +161,8 @@ https://www.tooplate.com/view/2127-little-fashion
 
                                     <p class="lead text-white mt-lg-3 mb-lg-5">Works for Medicine Distributor and Pharmacy Store</p>
 
-                                    <a href=" {% static 'about.html' %} " class="btn custom-btn">About Us</a>
-                                    <a href=" {% static 'about.html' %} " class="btn custom-btn">Contact Us</a> 
+                                    <a href=" {% url 'ABOUT' %} " class="btn custom-btn">About Us</a>
+                                    <a href=" {% url 'CONTACT' %} " class="btn custom-btn">Contact Us</a> 
                                 </div>
                             </div>
                         </div>
@@ -225,12 +237,12 @@ https://www.tooplate.com/view/2127-little-fashion
                                                 <h4 class="mb-3">Solu<span>tion</span></h4>
 
                                                 <p>The System called Monitoring Pharmacy stocks and sales system consist of data entry, retrieval and monitoring stock, sales, stocks of medicine with pharmacy, and determine the minimum quantity of each drugs are left and among that is any of them getting expired.</p>
-                                                <div class="mt-2 mt-lg-auto">
-                                                    <a href=" {% static 'contact.html' %} " class="custom-link mb-2">
+                                                <!-- <div class="mt-2 mt-lg-auto">
+                                                    <a href="#" class="custom-link mb-2">
                                                         Continue Reading
                                                         <i class="bi-arrow-right ms-2"></i>
                                                     </a>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -413,27 +425,25 @@ https://www.tooplate.com/view/2127-little-fashion
                 <div class="row">
 
                     <div class="col-lg-3 col-10 me-auto mb-4">
-                        <h4 class="text-white mb-3"><a href=" {% static 'index.html' %} ">Sales & Stock</a> Monitoring System</h4>
+                        <h4 class="text-white mb-3"><a href=" {% url 'INDEX' %} ">Sales & Stock</a> Monitoring System</h4>
                         <p class="copyright-text text-muted mt-lg-5 mb-4 mb-lg-0">Copyright © 2022 <strong>Sales & stock Monitoring System </strong></p>
                         <br>
                         <p class="copyright-text">Designed by <a href="https://www.tooplate.com/" target="_blank">Tooplate</a></p>
                     </div>
 
-                    <!-- <div class="col-lg-5 col-8">
+                    <div class="col-lg-5 col-8">
                         <h5 class="text-white mb-3">Sitemap</h5>
 
                         <ul class="footer-menu d-flex flex-wrap">
-                            <li class="footer-menu-item"><a href=" {% static 'about.html' %} " class="footer-menu-link">About</a></li>
+                            <li class="footer-menu-item"><a href=" {% url 'ABOUT' %} " class="footer-menu-link">About</a></li>
 
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Products</a></li>
+                            <li class="footer-menu-item"><a href=" {% url 'PRODUCT' %} " class="footer-menu-link">Products</a></li>
 
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Privacy policy</a></li>
+                            <li class="footer-menu-item"><a href=" {% url 'FAQS' %} " class="footer-menu-link">FAQs</a></li>
 
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">FAQs</a></li>
-
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Contact</a></li>
+                            <li class="footer-menu-item"><a href=" {% url 'CONTACT' %} " class="footer-menu-link">Contact</a></li>
                         </ul>
-                    </div> -->
+                    </div>
 
                     <div class="col-lg-3 col-4">
                         <h5 class="text-white mb-3">Social</h5>
