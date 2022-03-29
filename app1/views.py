@@ -87,3 +87,7 @@ def userLogOut(request):
     del request.session['email']
     print('User logged out successfully')
     return redirect('LOGIN')
+
+
+def index (request): 
+    return render(request, 'index.html')
