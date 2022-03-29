@@ -93,8 +93,6 @@ def userLogOut(request):
     print('User logged out successfully')
     return redirect('LOGIN1')
 
-
-
 def index (request): 
     if 'email' in request.session:
         name1 = signUp.objects.get(email=request.session['email'])
@@ -103,13 +101,16 @@ def index (request):
         return render(request, 'index.html', {'name': name})
     return redirect('LOGIN1')
 
-
-
 def about (request): 
     return render(request, 'about.html')
 
 def contact (request): 
-    return render(request, 'contact.html')
+    msg = ''
+    if request.method == 'POST':
+        db = ContactForm(name = request.POST.get('name'), email = request.POST.get('email'), subject = request.POST.get('subject'), message = request.POST.get('message'))
+        db.save()
+        msg = "Message Sent Successfully"
+    return render(request, 'contact.html', {'msg': msg})
 
 def faqs (request): 
     return render(request, 'faq.html')
