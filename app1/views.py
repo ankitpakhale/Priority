@@ -86,7 +86,7 @@ def dashboard(request):
         print(probl)
         
         return render(request,'dashboard.html', {'name': name, 'probl': probl})
-    return redirect('LOGIN')
+    return redirect('LOGIN1')
 
 
 def problem (request):
