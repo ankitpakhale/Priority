@@ -88,6 +88,31 @@ def dashboard(request):
         return render(request,'dashboard.html', {'name': name, 'probl': probl})
     return redirect('LOGIN')
 
+
+def problem (request):
+    if 'email' in request.session:
+        name = signUp.objects.get(email = request.session['email'])
+        
+        if request.method == 'POST':
+            prob = request.POST.get('problem')
+            print(prob)
+        
+            db = Problems()
+            db.problem = prob
+            db.isappoved = 0  
+            db.owner = name
+            db.save()
+            msg = 'Your problem has been saved properly'
+            return render(request,'problem.html', {'msg': msg})
+            
+        # to show the approved problem
+        probl = Problems.objects.filter(owner=name)
+        print(probl)
+        
+        return render(request,'problem.html', {'name': name, 'probl': probl})
+    return redirect('LOGIN')
+
+
 def userLogOut(request):
     del request.session['email']
     print('User logged out successfully')
