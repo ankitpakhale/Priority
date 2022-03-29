@@ -108,7 +108,7 @@ def products (request):
     return render(request, 'products.html')
 
 def signup1 (request): 
-    return render(request, 'sign-in.html')
+    return render(request, 'sign-up.html')
 
 def login1 (request): 
-    return render(request, 'sign-up.html')
+    return render(request, 'sign-in.html')
