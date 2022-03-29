@@ -5,8 +5,8 @@ urlpatterns = [
     # for demo
     path('testing/',views.hello, name='HELLO'),
 
-    path('signup/',views.SignupView, name='SIGNUP'),
-    path('login/', views.userLogin, name='LOGIN'),
+    # path('signup/',views.SignupView, name='SIGNUP'),
+    # path('login/', views.userLogin, name='LOGIN'),
     path('', views.dashboard, name='DASHBOARD'),
     path('logout/', views.userLogOut, name='LOGOUT'), 
 
@@ -16,6 +16,6 @@ urlpatterns = [
     path('index/', views.index, name='INDEX'), 
     path('productdetail/', views.productDetail, name='PRODUCTDETAILS'), 
     path('products/', views.products, name='PRODUCT'), 
-    path('signup1/', views.signup1, name='SIGNUP1'), 
-    path('login1/', views.login1, name='LOGIN1')
+    path('signup1/', views.SignupView, name='SIGNUP1'), 
+    path('login1/', views.userLogin, name='LOGIN1')
 ]

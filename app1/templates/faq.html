@@ -43,54 +43,85 @@ https://www.tooplate.com/view/2127-little-fashion
     
         <main>
 
-            <nav class="navbar navbar-expand-lg">
+            <nav class="navbar navbar-expand-lg bg-light">
                 <div class="container">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-
-                    <a class="navbar-brand" href=" {% static 'index.html' %} ">
-                        <strong><span>Little</span> Fashion</strong>
+    
+                    <a class="navbar-brand" href=" {% url 'INDEX' %} ">
+                        <strong><span>Sales & Stock </span> Monitoring System</strong>
                     </a>
-
+    
                     <div class="d-lg-none">
-                        <a href=" {% static 'sign-in.html' %} " class="bi-person custom-icon me-3"></a>
-
-                        <a href=" {% static 'product-detail.html' %} " class="bi-bag custom-icon"></a>
+                        <a href=" {% url 'LOGIN1' %} " class="bi-person custom-icon me-3"></a>
+    
+                        <a href=" {% url 'PRODUCTDETAILS' %} " class="bi-bag custom-icon"></a>
                     </div>
-
+    
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav mx-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href=" {% static 'index.html' %} ">Home</a>
+                                <a class="nav-link active" href=" {% url 'INDEX' %} ">Home</a>
                             </li>
-
+    
                             <li class="nav-item">
-                                <a class="nav-link" href=" {% static 'about.html' %} ">Story</a>
+                                <a class="nav-link" href=" {% url 'ABOUT' %} ">About</a>
                             </li>
-
+    
+                            <!-- <li class="nav-item">
+                                    <a class="nav-link" href="#">Confirm Order</a>
+                                </li>
+    
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Order Bills</a>
+                                </li> -->
+    
+                            <!-- <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Add
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">Add Store</a></li>
+                                    <li><a class="dropdown-item" href="#">Add Stock</a></li>
+                                    <li><a class="dropdown-item" href="#">View Stock</a></li>
+                                    <li>
+                                </ul>
+                            </li> -->
+    
                             <li class="nav-item">
-                                <a class="nav-link" href=" {% static 'products.html' %} ">Products</a>
+                                <a class="nav-link" href=" {% url 'PRODUCT' %} ">Products</a>
                             </li>
-
+    
                             <li class="nav-item">
-                                <a class="nav-link active" href=" {% static 'faq.html' %} ">FAQs</a>
+                                <a class="nav-link" href=" {% url 'FAQS' %} ">Faqs</a>
                             </li>
-
+    
                             <li class="nav-item">
-                                <a class="nav-link" href=" {% static 'contact.html' %} ">Contact</a>
+                                <a class="nav-link" href=" {% url 'CONTACT' %} ">Contact</a>
                             </li>
+    
+                            {% if name %}
+                            <li class="nav-item">
+                                <a class="nav-link" href=" {% url 'LOGOUT' %} ">Logout</a>
+                            </li>
+                            {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href=" {% url 'LOGIN1' %} ">Login</a>
+                            </li>
+                            {% endif %}
                         </ul>
-
-                        <div class="d-none d-lg-block">
-                            <a href=" {% static 'sign-in.html' %} " class="bi-person custom-icon me-3"></a>
-
-                            <a href=" {% static 'product-detail.html' %} " class="bi-bag custom-icon"></a>
+    
+                        {% if name %}
+                        <div class="d-none d-lg-block" style="font-size: 16px; color: #F54401; font-weight: 550; text-decoration: underline;">
+                            Welcome {{name}}
                         </div>
+                        {% endif %}
                     </div>
                 </div>
             </nav>
-
             <header class="site-header section-padding d-flex justify-content-center align-items-center">
                 <div class="container">
                     <div class="row">

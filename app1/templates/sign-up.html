@@ -71,30 +71,42 @@ https://www.tooplate.com/view/2127-little-fashion
                             <div class="row">
                                 <div class="col-lg-8 col-11 mx-auto">
                                     <form role="form" method="post">
+                                        {% csrf_token %}
+                                        <div class="form-floating my-4">
+                                            <input type="text" name="name" id="name" class="form-control" placeholder="Name" required>
+                                            <label for="name">Name</label>
+                                        </div>
 
-                                        <div class="form-floating">
+                                        <div class="form-floating my-4">
                                             <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required>
-
                                             <label for="email">Email address</label>
                                         </div>
 
                                         <div class="form-floating my-4">
-                                            <input type="password" name="password" id="password" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="Password" required>
-
-                                            <label for="password">Password</label>
-                                            
-                                            <p class="text-center">* shall include 0-9 a-z A-Z in 4 to 10 characters</p>
+                                            <input type="number" name="number" id="num" class="form-control" placeholder="Number" required>
+                                            <label for="num">Number</label>
                                         </div>
 
-                                        <div class="form-floating">
-                                            <input type="password" name="confirm_password" id="confirm_password" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="Password" required>
+                                        <div class="form-floating my-4">
+                                            <input type="text" name="address" id="address" class="form-control" placeholder="Address" required>
+                                            <label for="address">Address</label>
+                                        </div>
 
+                                        <div class="form-floating my-4">
+                                            <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+                                            <label for="password">Password</label>                                            
+                                            <p class="text-center" style="font-size:14px">* shall include 0-9 a-z A-Z in 4 to 10 characters</p>
+                                        </div>
+
+                                        <div class="form-floating my-4">
+                                            <input type="password" name="confirmPassword" id="confirm_password" class="form-control" placeholder="Password" required>
                                             <label for="confirm_password">Password Confirmation</label>
                                         </div>
 
-                                        <button type="submit" class="btn custom-btn form-control mt-4 mb-3">
+                                        <!-- <button type="submit" class="btn custom-btn form-control mt-4 mb-3">
                                             Create account
-                                        </button>
+                                        </button> -->
+                                        <input type="submit" class="btn custom-btn form-control mt-4 mb-3" value="Create account">
 
                                         <p class="text-center">Already have an account? Please <a href=" {% url 'LOGIN1' %} ">Sign In</a></p>
                                     </form>
@@ -162,6 +174,13 @@ https://www.tooplate.com/view/2127-little-fashion
         <script src=" {% static 'js/jQuery.headroom.js' %} "></script>
         <script src=" {% static 'js/slick.min.js' %} "></script>
         <script src=" {% static 'js/custom.js' %} "></script>
+
+
+
+        <!-- PRINTING BACKEND MESSAGES -->
+        {% if msg %}
+        <script>alert('{{msg}}')</script>
+        {% endif %}
 
     </body>
 </html>

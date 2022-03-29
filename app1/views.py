@@ -27,7 +27,7 @@ def SignupView(request):
             data = signUp.objects.filter(email=Email)
             if data:
                 msg = "Email already registered"
-                return render(request, 'signup.html', {'msg': msg})
+                return render(request, 'sign-up.html', {'msg': msg})
             elif ConfirmPassword == Password:
                 v = signUp()
                 v.name = Name
@@ -37,29 +37,34 @@ def SignupView(request):
                 v.password = Password
                 v.save()
                 print(f"{v.name} Signed up successfully")
-                return redirect('LOGIN')
+                return redirect('LOGIN1')
             else:
                 msg = 'Please Enter Same Password'
-                return render(request , 'signup.html',{'msg':msg}) 
+                return render(request , 'sign-up.html',{'msg':msg}) 
         finally:
             messages.success(request, 'Signup Successfully Done...')
-    return render(request,'signup.html')
+    return render(request,'sign-up.html')
 
 def userLogin(request):
     if request.POST:
+        print("inside login")
         em = request.POST.get('email')
         pass1 = request.POST.get('password')
       
         print("Inside first try block", em)
+
         check = signUp.objects.get(email = em)
+
         print("Email is ",em)
         if check.password == pass1:
             request.session['email'] = check.email
             print(f'{check.name} Successfully logged in')
-            return redirect('DASHBOARD')
+            return redirect('INDEX')
         else:
-            return HttpResponse('Invalid Password')
-    return render(request,'login.html')
+            msg = 'Invalid Password'
+            return render(request,'sign-in.html', {'msg': msg})
+            # return HttpResponse('Invalid Password')
+    return render(request,'sign-in.html')
 
 
 def dashboard(request):
@@ -86,7 +91,18 @@ def dashboard(request):
 def userLogOut(request):
     del request.session['email']
     print('User logged out successfully')
-    return redirect('LOGIN')
+    return redirect('LOGIN1')
+
+
+
+def index (request): 
+    if 'email' in request.session:
+        name1 = signUp.objects.get(email=request.session['email'])
+        name2 = name1.name
+        name = name2.capitalize()
+        return render(request, 'index.html', {'name': name})
+    return redirect('LOGIN1')
+
 
 
 def about (request): 
@@ -96,13 +112,10 @@ def contact (request):
     return render(request, 'contact.html')
 
 def faqs (request): 
-    return render(request, 'faqs.html')
-
-def index (request): 
-    return render(request, 'index.html')
+    return render(request, 'faq.html')
 
 def productDetail (request): 
-    return render(request, 'productDetail.html')
+    return render(request, 'product-detail.html')
 
 def products (request): 
     return render(request, 'products.html')
