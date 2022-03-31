@@ -120,21 +120,24 @@ def allProblem(request):
         if request.method == 'POST':
             plus = int(request.POST.get('plus'))
             idOfProb = request.POST.get('idOfProb')
-            # print(idOfProb,"This is id of the prob")
-            # print(plus,"This is PLUS")
+            print(idOfProb,"This is id of the prob")
+            print(plus,"This is PLUS")
 
             current = Problems.objects.filter(id = idOfProb)
+
+            print(current,"This is showing the problem")
             if current:
                 db = Problems()
+                # db.problem = idOfProb
                 db.count += plus
                 db.save()
-                print("DONE.........................................")
+                print("vote.........................................")
             # msg = 'Your problem has been saved properly'
             # return render(request,'allProblems.html', {'msg': msg})
             
         # to show the all the POSTED problems
         allProblems = Problems.objects.all()
-        print(allProblems)
+        # print(allProblems)
         
         return render(request,'allProblem.html', {'name': name, 'allProblems': allProblems})
     return redirect('LOGIN1')
