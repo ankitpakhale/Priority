@@ -116,25 +116,18 @@ def problem (request):
 def allProblem(request):
     if 'email' in request.session:
         name = signUp.objects.get(email = request.session['email'])
-        
+        msg = ''
         if request.method == 'POST':
             plus = int(request.POST.get('plus'))
             idOfProb = request.POST.get('idOfProb')
-            print(idOfProb,"This is id of the prob")
-            print(plus,"This is PLUS")
-
-            current = Problems.objects.filter(id = idOfProb)
-
+            current = Problems.objects.get(id = idOfProb)
             print(current,"This is showing the problem")
             if current:
-                db = Problems()
-                # db.problem = idOfProb
-                db.count += plus
-                db.save()
-                print("vote.........................................")
-            # msg = 'Your problem has been saved properly'
-            # return render(request,'allProblems.html', {'msg': msg})
-            
+                current.count += plus
+                current.save()
+                msg = 'Your problem has been saved properly'
+            return render(request,'allProblem.html', {'msg': msg})
+
         # to show the all the POSTED problems
         allProblems = Problems.objects.all()
         # print(allProblems)
@@ -160,6 +153,7 @@ def about (request):
     return render(request, 'about.html')
 
 def contact (request): 
+    print('Contact')
     msg = ''
     if request.method == 'POST':
         db = ContactForm(name = request.POST.get('name'), email = request.POST.get('email'), subject = request.POST.get('subject'), message = request.POST.get('message'))
