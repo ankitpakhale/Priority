@@ -116,7 +116,7 @@ def problem (request):
 def allProblem(request):
     if 'email' in request.session:
         name = signUp.objects.get(email = request.session['email'])
-        msg = ''
+       
         if request.method == 'POST':
             plus = int(request.POST.get('plus'))
             idOfProb = request.POST.get('idOfProb')
@@ -124,7 +124,8 @@ def allProblem(request):
             print(current,"This is showing the problem")
             if current:
                 current.count += plus
-                # current.isvoted = True
+                name.isvoted = True
+                name.save()
                 current.save()
                 msg = 'Your problem has been saved properly'
                 return redirect('ALLPROBLEM')

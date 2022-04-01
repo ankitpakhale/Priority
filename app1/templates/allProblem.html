@@ -149,9 +149,14 @@ https://www.tooplate.com/view/2127-little-fashion
                                 <h6>
                                     {{i.count}}
                                 </h6>
+                              
                                 <input name="idOfProb" value="{{i.id}}" type="number" hidden="true">
                                 <input name="plus" value="1" type="number" hidden="true">
+
+                                <!-- {% if i.owner == name %} -->
                                 <input type="submit" value="Votes">
+                                <!-- {% endif %} -->
+
                             </div>
                         </form>
                         {% endfor %}
