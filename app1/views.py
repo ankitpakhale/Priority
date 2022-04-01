@@ -1,4 +1,5 @@
 from ast import Num
+from audioop import add
 from email.headerregistry import Address
 from platform import uname
 from unicodedata import category
@@ -80,13 +81,12 @@ def dashboard(request):
             db.isappoved = 0  
             db.owner = name
             db.save()
-        
         # to show the approved problem
         probl = Problems.objects.filter(owner=name)
         print(probl)
         
         return render(request,'dashboard.html', {'name': name, 'probl': probl})
-    return redirect('LOGIN')
+    return redirect('LOGIN1')
 
 
 def problem (request):
@@ -100,6 +100,7 @@ def problem (request):
             db = Problems()
             db.problem = prob
             db.isappoved = 0  
+            db.count = 1    
             db.owner = name
             db.save()
             msg = 'Your problem has been saved properly'
@@ -110,7 +111,36 @@ def problem (request):
         print(probl)
         
         return render(request,'problem.html', {'name': name, 'probl': probl})
-    return redirect('LOGIN')
+    return redirect('LOGIN1')
+
+def allProblem(request):
+    if 'email' in request.session:
+        name = signUp.objects.get(email = request.session['email'])
+        
+        if request.method == 'POST':
+            plus = int(request.POST.get('plus'))
+            idOfProb = request.POST.get('idOfProb')
+            print(idOfProb,"This is id of the prob")
+            print(plus,"This is PLUS")
+
+            current = Problems.objects.filter(id = idOfProb)
+
+            print(current,"This is showing the problem")
+            if current:
+                db = Problems()
+                # db.problem = idOfProb
+                db.count += plus
+                db.save()
+                print("vote.........................................")
+            # msg = 'Your problem has been saved properly'
+            # return render(request,'allProblems.html', {'msg': msg})
+            
+        # to show the all the POSTED problems
+        allProblems = Problems.objects.all()
+        # print(allProblems)
+        
+        return render(request,'allProblem.html', {'name': name, 'allProblems': allProblems})
+    return redirect('LOGIN1')
 
 
 def userLogOut(request):
