@@ -10,6 +10,7 @@ class signUp(models.Model):
     address = models.CharField(max_length=100, default='')
     number = models.PositiveIntegerField(default='')
     password = models.CharField(default='', max_length=15)
+    isvoted = models.BooleanField(default=False, null=True)
 
     def __str__(self):
         return self.name
@@ -18,7 +19,6 @@ class signUp(models.Model):
 class Problems(models.Model):
     problem = models.CharField(max_length=30)
     isappoved = models.BooleanField(default=False, null=True)
-    isvoted = models.BooleanField(default=False, null=True)
     count = models.IntegerField(default=1)
     owner  = models.ForeignKey(signUp, on_delete=models.CASCADE, null=True, blank=True)
 

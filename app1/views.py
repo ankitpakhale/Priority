@@ -124,6 +124,7 @@ def allProblem(request):
             print(current,"This is showing the problem")
             if current:
                 current.count += plus
+                # current.isvoted = True
                 current.save()
                 msg = 'Your problem has been saved properly'
                 return redirect('ALLPROBLEM')
