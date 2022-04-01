@@ -126,8 +126,8 @@ def allProblem(request):
                 current.count += plus
                 current.save()
                 msg = 'Your problem has been saved properly'
-            return render(request,'allProblem.html', {'msg': msg})
-
+                return redirect('ALLPROBLEM')
+            
         # to show the all the POSTED problems
         allProblems = Problems.objects.all()
         # print(allProblems)
