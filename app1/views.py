@@ -11,7 +11,9 @@ from django.contrib import messages
 
 from django.db.models.query_utils import Q
 
+
 # Create your views here.
+
 
 def hello(request):
     return HttpResponse("You are in priority................")
