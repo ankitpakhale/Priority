@@ -25,6 +25,10 @@ class Problems(models.Model):
     def __str__(self):
         return str(self.problem)
 
+class Voting(models.Model):
+    user  = models.ForeignKey(signUp, on_delete=models.CASCADE, null=True, blank=True)
+    issue  = models.ForeignKey(Problems, on_delete=models.CASCADE, null=True, blank=True)
+
 
 
 class ContactForm(models.Model):

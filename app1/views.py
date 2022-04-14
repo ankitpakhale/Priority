@@ -125,10 +125,20 @@ def allProblem(request):
             current = Problems.objects.get(id = idOfProb)
             print(current,"This is showing the problem")
             if current:
-                current.count += plus
-                name.isvoted = True
-                name.save()
-                current.save()
+                vot=Voting.objects.get(user=name,issue=current)
+                if vot:
+                    print("Already Voted")
+                else:
+                    v = Voting()
+                    v.user = name
+                    v.issue = current
+                    v.save()
+
+                    current.count += plus
+                    name.isvoted = True
+                    name.save()
+                    current.save()
+
                 msg = 'Your problem has been saved properly'
                 return redirect('ALLPROBLEM')
             
