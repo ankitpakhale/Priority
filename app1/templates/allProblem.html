@@ -155,7 +155,13 @@ https://www.tooplate.com/view/2127-little-fashion
                                 <input name="plus" value="1" type="number" hidden="true">
 
                                 {% if i.owner == name %}
-                                <h6>You can't vote yourself</h6>
+                                
+                                    {% if msg == 'Already Voted' %}
+                                        <h6>You can't vote yourself</h6>
+                                    {% else %}
+                                        <h6>Else if</h6>
+                                    {% endif %}
+                    
                                 {% else %}
                                 <input type="submit" value="Votes">
                                 {% endif %}

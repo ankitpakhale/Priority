@@ -123,15 +123,17 @@ def allProblem(request):
         allProblems = Problems.objects.all()
         # print(allProblems)
         
+        msg = ''
         if request.method == 'POST':
             plus = int(request.POST.get('plus'))
             idOfProb = request.POST.get('idOfProb')
             current = Problems.objects.get(id = idOfProb)
-            print(current,"This is showing the problem")
+            # print(current,"This is showing the problem")
             if current:
                 try:
                     vot=Voting.objects.get(user=name,issue=current)
-                    print("Already Voted")
+                    msg = "Already Voted"
+                        
                 except:
                     v = Voting()
                     v.user = name
@@ -142,10 +144,10 @@ def allProblem(request):
                     name.save()
                     current.save()
 
-                msg = 'Your problem is saved Successfully'
+                    msg = 'Your problem is saved Successfully'
                 return redirect('ALLPROBLEM')
             
-        return render(request,'allProblem.html', {'name': name, 'allProblems': allProblems})
+        return render(request,'allProblem.html', {'name': name, 'allProblems': allProblems, 'msg': msg})
     return redirect('LOGIN1')
 
 
