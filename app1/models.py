@@ -18,6 +18,11 @@ class signUp(models.Model):
 
 class Problems(models.Model):
     problem = models.CharField(max_length=30)
+    
+    userVotes = models.CharField(max_length=999999)
+
+    # userVotes = models.ArrayField(models.ArrayField(models.IntegerField()))
+    
     isappoved = models.BooleanField(default=False, null=True)
     count = models.IntegerField(default=1)
     owner  = models.ForeignKey(signUp, on_delete=models.CASCADE, null=True, blank=True)
