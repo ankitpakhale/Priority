@@ -4,3 +4,4 @@ from .models import *
 
 admin.site.register(signUp)
 admin.site.register(Problems)
+admin.site.register(Voting)

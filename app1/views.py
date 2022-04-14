@@ -124,6 +124,7 @@ def allProblem(request):
         # print(allProblems)
         
         msg = ''
+        vot = ''
         if request.method == 'POST':
             plus = int(request.POST.get('plus'))
             idOfProb = request.POST.get('idOfProb')
@@ -132,6 +133,7 @@ def allProblem(request):
             if current:
                 try:
                     vot=Voting.objects.get(user=name,issue=current)
+                    print(vot)
                     msg = "Already Voted"
                         
                 except:
@@ -139,13 +141,13 @@ def allProblem(request):
                     v.user = name
                     v.issue = current
                     v.save()
-                    current.count += plus
-                    name.isvoted = True
-                    name.save()
-                    current.save()
-
-                    msg = 'Your problem is saved Successfully'
-                return redirect('ALLPROBLEM')
+                    # current.count += plus
+                    # name.isvoted = True
+                    # name.save()
+                    # current.save()
+                    msg = 'Already Voted'
+            print(msg)
+                # return redirect('ALLPROBLEM')
             
         return render(request,'allProblem.html', {'name': name, 'allProblems': allProblems, 'msg': msg})
     return redirect('LOGIN1')

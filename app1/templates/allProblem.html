@@ -150,20 +150,24 @@ https://www.tooplate.com/view/2127-little-fashion
                                 <h6>
                                     {{i.count}}
                                 </h6>
-                              
+
                                 <input name="idOfProb" value="{{i.id}}" type="number" hidden="true">
                                 <input name="plus" value="1" type="number" hidden="true">
 
                                 {% if i.owner == name %}
+
+                                <h6>You can't vote yourself</h6>
+                                <!-- <h6>You can't vote</h6> -->
+                                {% else %}
                                 
-                                    {% if msg == 'Already Voted' %}
-                                        <h6>You can't vote yourself</h6>
-                                    {% else %}
-                                        <h6>Else if</h6>
-                                    {% endif %}
-                    
+                                {% if msg == 'Already Voted' %}
+
+                                
                                 {% else %}
                                 <input type="submit" value="Votes">
+                                <!-- <h6>Else if</h6> -->
+                                {% endif %}
+
                                 {% endif %}
 
                             </div>
