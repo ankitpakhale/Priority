@@ -143,6 +143,7 @@ https://www.tooplate.com/view/2127-little-fashion
                         justify-content:space-between;
                         display: flex;
                         ">
+
                                 <h6>
                                     {{i.problem}}
                                 </h6>
@@ -153,9 +154,11 @@ https://www.tooplate.com/view/2127-little-fashion
                                 <input name="idOfProb" value="{{i.id}}" type="number" hidden="true">
                                 <input name="plus" value="1" type="number" hidden="true">
 
-                                <!-- {% if i.owner == name %} -->
+                                {% if i.owner == name %}
+                                <h6>You can't vote yourself</h6>
+                                {% else %}
                                 <input type="submit" value="Votes">
-                                <!-- {% endif %} -->
+                                {% endif %}
 
                             </div>
                         </form>

@@ -119,33 +119,32 @@ def allProblem(request):
     if 'email' in request.session:
         name = signUp.objects.get(email = request.session['email'])
        
+        # to show the all the POSTED problems
+        allProblems = Problems.objects.all()
+        # print(allProblems)
+        
         if request.method == 'POST':
             plus = int(request.POST.get('plus'))
             idOfProb = request.POST.get('idOfProb')
             current = Problems.objects.get(id = idOfProb)
             print(current,"This is showing the problem")
             if current:
-                vot=Voting.objects.get(user=name,issue=current)
-                if vot:
+                try:
+                    vot=Voting.objects.get(user=name,issue=current)
                     print("Already Voted")
-                else:
+                except:
                     v = Voting()
                     v.user = name
                     v.issue = current
                     v.save()
-
                     current.count += plus
                     name.isvoted = True
                     name.save()
                     current.save()
 
-                msg = 'Your problem has been saved properly'
+                msg = 'Your problem is saved Successfully'
                 return redirect('ALLPROBLEM')
             
-        # to show the all the POSTED problems
-        allProblems = Problems.objects.all()
-        # print(allProblems)
-        
         return render(request,'allProblem.html', {'name': name, 'allProblems': allProblems})
     return redirect('LOGIN1')
 
